@@ -4,10 +4,13 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 
 const App = () => {
-  const activeMenu = false;
+ 
+const {activeMenu} = useStateContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -52,7 +55,7 @@ const App = () => {
             }`}>
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar />
-            </div>
+            
           </div>
           <div>
           <Routes>
@@ -82,6 +85,7 @@ const App = () => {
                 <Route path="/stacked" element={<Stacked />} />
 
               </Routes>
+          </div>
           </div>
         </div>
       </BrowserRouter>
